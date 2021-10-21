@@ -38,11 +38,11 @@ html, body {
     background: $yellow;
     background: linear-gradient(0deg, $orange 0%, $yellow 100%);
     &::before {
-        content: '';
         position: absolute;
         bottom: 50%;
         width: 100%;
         height: 15%;
+        content: '';
         background: linear-gradient(0deg, $yellow 0%, transparent 100%);
     }
     .container__title {
@@ -82,7 +82,6 @@ html, body {
                 height: 10px;
                 border-radius: 10px;
                 background-color: black;
-
             }
         }
         .audioPlayer__timer {
@@ -102,8 +101,8 @@ html, body {
             .button {
                 width: 70px;
                 height: 70px;
-                background: transparent;
                 border: none;
+                background: transparent;
             }
             .button--back {
                 background-image: url(../img/button--back.svg);
@@ -129,18 +128,18 @@ html, body {
         width: 80%;
         height: auto;
         padding: 15px;
+        color: white;
         border-radius: 20px;
         background-color: black;
-        color: white;
         h4 {
             font-size: 1.2rem;
             letter-spacing: 1px;
         }
         p {
+            margin-top: 25px;
             text-align: left;
             font-weight: 300;
             font-size: 1.5rem;
-            margin-top: 25px;
         }
     }
 }

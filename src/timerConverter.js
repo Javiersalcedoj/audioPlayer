@@ -1,4 +1,4 @@
-function secondConverer (second) {
+function secondFormat (second) {
     if (second < 10){
         return `0${second}`
     } else {
@@ -11,16 +11,16 @@ function timerConverter(timer) {
     let second;
     if(timer < 60) {
         minute = 0;
-        second = secondConverer(Math.floor(timer))
+        second = secondFormat(Math.floor(timer))
         return `${minute}:${second}`
     } else{
         minute = Math.floor(timer/60)
         if (minute < 60){
-            second = secondConverer(Math.floor(timer -(minute*60)));
+            second = secondFormat(Math.floor(timer -(minute*60)));
             return `${minute}:${second}`
         } else {
             hour = Math.floor(timer/3600);
-            second = secondConverer(Math.floor(timer -(minute*60)));
+            second = secondFormat(Math.floor(timer -(minute*60)));
             minute = Math.floor( minute - (hour*60));
             return `${hour}:${minute}:${second}`
         }
