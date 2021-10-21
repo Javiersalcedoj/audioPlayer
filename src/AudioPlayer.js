@@ -39,10 +39,10 @@ class AudioPlayer{
         let position = Math.floor ((100*this.audio.currentTime) / this.audio.duration);
         currentTimeline.style = `width: ${position}%;`
     }
-    timelineClick () {
+    timelineClick (x) {
         const duration = Math.floor(this.audio.duration)
         let position = interpolation([
-            event.pageX,
+            x,
             timeline.offsetLeft,
             timeline.offsetWidth + timeline.offsetLeft,
             0,
@@ -56,9 +56,9 @@ class AudioPlayer{
         }
         this.audio.currentTime = position;
     }
-    dragTimeline() {
+    dragTimeline(x) {
         let position = interpolation([
-            event.pageX,
+            x,
             timeline.offsetLeft,
             timeline.offsetWidth + timeline.offsetLeft,
             0,

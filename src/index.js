@@ -9,7 +9,7 @@ music.addEventListener('ended', ()=>{media.ended()})
 
 const timerDuration = document.querySelector('.timer--duration');
 const timerCurrent =  document.querySelector('.timer--current');
-music.addEventListener('timeupdate', refreshTimer) 
+music.addEventListener('timeupdate', refreshTimer)
 
 function refreshTimer(){
     media.current();
@@ -20,20 +20,46 @@ function refreshTimerDrag () {
 }
 
 const timeline = document.querySelector('.audioPlayer__timeline');
-timeline.addEventListener('click', ()=>{media.timelineClick()})
+timeline.addEventListener('click', ()=>{
+    let x = event.pageX;
+    media.timelineClick(x)
+})
 const currentTimeline = document.querySelector('.timeline--highlight');
 
 const circleCureentTimeline = document.querySelector('.timeline--highlight--circle');
-circleCureentTimeline.addEventListener('dragstart', ()=>{
+circleCureentTimeline.addEventListener('dragstart', dragstart)
+circleCureentTimeline.removeEventListener('touchstart', dragstart)
+function dragstart(){
     music.removeEventListener('timeupdate', refreshTimer);
     music.addEventListener('timeupdate', refreshTimerDrag);
+}
+
+circleCureentTimeline.addEventListener('drag', () => {
+    let x = event.pageX;
+    media.dragTimeline(x)
 });
-circleCureentTimeline.addEventListener('drag', () => {media.dragTimeline()});
+circleCureentTimeline.addEventListener('touchmove', () => {
+    const touch = event.targetTouches[0]
+    const x = touch.pageX
+    media.dragTimeline(x)
+});
+
 circleCureentTimeline.addEventListener('dragend', ()=>{
-    media.timelineClick()
+    let x = event.pageX;
+    media.timelineClick(x)
+
+    dragend()
+})
+circleCureentTimeline.addEventListener('touchend', ()=>{
+    const x = event.changedTouches[0].pageX;
+    media.timelineClick(x)
+
+    dragend()
+})
+function dragend () {
     music.removeEventListener('timeupdate', refreshTimerDrag);
     music.addEventListener('timeupdate', refreshTimer);
-});
+}
 
 const back = document.querySelector('.button--back');
 back.addEventListener('click', ()=>{media.forwardBackward(false)})
