@@ -1,4 +1,4 @@
-import { buttonPlay, currentTimeline, timeline, timerCurrent, timerDuration } from "./index.js";
+import { buttonPlay, buttonPlaySvg, currentTimeline, timeline, timerCurrent, timerDuration } from "./index.js";
 import { interpolation } from "./interpolation.js";
 import { timerConverter } from "./timerConverter.js";
 
@@ -9,10 +9,10 @@ class AudioPlayer{
     play() {
         if (this.audio.paused) {
             this.audio.play();
-            buttonPlay.style = 'background-image: url(../img/button--pause.svg)';
+            buttonPlaySvg.innerHTML = '<path   <path d="M577,1951.5a92.5,92.5,0,1,0,92.5,92.5A92.5,92.5,0,0,0,577,1951.5Zm-10.5,130h-19v-74h19Zm36-1h-19v-74h19Z" transform="translate(-453 -1919)"/>'
         } else {
             this.audio.pause();
-            buttonPlay.style = 'background-image: url(../img/button--play.svg)'
+            buttonPlaySvg.innerHTML = '<path  d="M577,1951.5a92.5,92.5,0,1,0,92.5,92.5A92.5,92.5,0,0,0,577,1951.5Zm-19,125.41v-65.82L615,2044Z" transform="translate(-453 -1919)"/>'
         }
     }
     forwardBackward(button) {
@@ -24,7 +24,7 @@ class AudioPlayer{
     }
     ended() {
         this.audio.pause();
-        buttonPlay.style = 'background-image: url(../img/button--play.svg)'
+        buttonPlaySvg.innerHTML = '<path  d="M577,1951.5a92.5,92.5,0,1,0,92.5,92.5A92.5,92.5,0,0,0,577,1951.5Zm-19,125.41v-65.82L615,2044Z" transform="translate(-453 -1919)"/>'
         this.audio.currentTime = 0;
     }
     duration() {

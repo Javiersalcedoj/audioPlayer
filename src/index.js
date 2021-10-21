@@ -27,6 +27,7 @@ const forward = document.querySelector('.button--forward');
 forward.addEventListener('click', ()=>{media.forwardBackward(true)})
 
 const buttonPlay = document.querySelector('.button--play');
+const buttonPlaySvg = document.querySelector('.button--play__svg')
 buttonPlay.addEventListener('click', ()=>{media.play()})
 
-export {timerDuration, timerCurrent, currentTimeline, buttonPlay, timeline}
+export {timerDuration, timerCurrent, currentTimeline, buttonPlay, timeline, buttonPlaySvg}

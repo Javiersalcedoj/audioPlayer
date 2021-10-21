@@ -154,11 +154,6 @@ html, body {
   background-repeat: no-repeat;
 }
 
-.container .audioPlayer .audioPlayer__button .button--play {
-  background-image: url(../img/button--play.svg);
-  background-repeat: no-repeat;
-}
-
 .container .audioPlayer .audioPlayer__button .button--forward {
   background-image: url(../img/button--forward.svg);
   background-repeat: no-repeat;
