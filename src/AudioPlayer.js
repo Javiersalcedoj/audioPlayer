@@ -56,7 +56,6 @@ class AudioPlayer{
         }
         this.audio.currentTime = position;
     }
-    
     dragTimeline() {
         let position = interpolation([
             event.pageX,

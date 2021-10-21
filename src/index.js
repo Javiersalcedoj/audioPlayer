@@ -1,6 +1,5 @@
 import { AudioPlayer } from "./AudioPlayer.js";
 
-
 const music = new Audio ('./audio/ZITTI E BUONI.mp3')
 let media = new AudioPlayer (music);
 music.addEventListener('canplaythrough', function() {
@@ -19,7 +18,6 @@ function refreshTimer(){
 function refreshTimerDrag () {
     media.current();
 }
-
 
 const timeline = document.querySelector('.audioPlayer__timeline');
 timeline.addEventListener('click', ()=>{media.timelineClick()})
